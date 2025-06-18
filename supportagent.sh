@@ -64,8 +64,8 @@ command_exists() {
 if command_exists kubectl-ai; then
     echo -e "${GREEN}✅ kubectl-ai is already installed.${NC}"
 else
-    echo "${GREEN}❌ kubectl-ai not found. Please install kubectlai to proceed forward${NC}"
-    echo "${GREEN} https://github.com/GoogleCloudPlatform/kubectl-ai ${NC}"
+    echo -e "${GREEN}❌ kubectl-ai not found. Please install kubectlai to proceed forward${NC}"
+    echo -e "${GREEN} https://github.com/GoogleCloudPlatform/kubectl-ai ${NC}"
     install_kubectl_ai
 fi
 
