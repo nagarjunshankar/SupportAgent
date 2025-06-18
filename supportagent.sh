@@ -66,7 +66,7 @@ if command_exists kubectl-ai; then
 else
     echo -e "${GREEN}❌ kubectl-ai not found. Please install kubectlai to proceed forward${NC}"
     echo -e "${GREEN} https://github.com/GoogleCloudPlatform/kubectl-ai ${NC}"
-    install_kubectl_ai
+    echo -e "${GREEN} Download Link: curl -sSL https://raw.githubusercontent.com/GoogleCloudPlatform/kubectl-ai/main/install.sh | bash${NC}"
 fi
 
 
