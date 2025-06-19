@@ -22,6 +22,7 @@ nohup sbctl serve -s $filename > sbctl.log 2>&1 &
 sleep 5
 # Extract the KUBECONFIG path from the log
 KUBECONFIG_PATH=$(grep -oE "/var/folders/.*/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
+#KUBECONFIG_PATH=$(grep -oE "/tmp/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
 
 if [ -z "$KUBECONFIG_PATH" ]; then
     echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
