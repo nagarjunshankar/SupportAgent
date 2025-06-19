@@ -21,8 +21,8 @@ nohup sbctl serve -s $filename > sbctl.log 2>&1 &
 # Wait a few seconds for the server to start
 sleep 5
 # Extract the KUBECONFIG path from the log
-KUBECONFIG_PATH=$(grep -oE "/var/folders/.*/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
-#KUBECONFIG_PATH=$(grep -oE "/tmp/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
+#KUBECONFIG_PATH=$(grep -oE "/var/folders/.*/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
+KUBECONFIG_PATH=$(grep -oE "/tmp/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
 
 if [ -z "$KUBECONFIG_PATH" ]; then
     echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
@@ -76,7 +76,7 @@ fi
 
 #if [[ "$use_key" == "y" || "$use_key" == "Y" ]]; then
   read -s -p "Enter your OpenAI API Key - Please find the key on 1password Vault: " OPENAI_KEY
-  export OPENAI_API_KEY= "$OPENAI_KEY"
+  export OPENAI_API_KEY="$OPENAI_KEY"
   echo ""
   echo -e "${GREEN}✅ OPENAI_API_KEY has been set, Please edit the script to change the key${NC}"
   echo -e "${GREEN}✅ Running Kubectl-ai with OPENAI LLM Provider and Model gpt-4o${NC}"
