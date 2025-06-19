@@ -128,7 +128,7 @@ kubectl get pods -n kube-system --no-headers -o wide \
     if (unit == "d" && val <= 10) print
     else if (unit == "h" || unit == "m" || unit == "s") print
   }' \
-| kubectl-ai --llm-provider=openai --model=gpt-4o "describe the kube-system podsfor any potential issues or misconfigurations" --quiet
+| kubectl-ai --llm-provider=openai --model=gpt-4o "describe the kube-system pods for any potential issues or misconfigurations" --quiet
 sleep 2
 echo ""
 
