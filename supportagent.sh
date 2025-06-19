@@ -294,5 +294,6 @@ echo -e "${GREEN}✅ Cluster analysis complete — done by KNIME AI Support Agen
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
 echo ""
 echo -e "${GREEN}📜 I am now open for any questions you have. Example: You can ask me about specific pod within a namespace in Natural Language${NC}"
+echo -e "${GREEN}📜 Please note that any vague question will exhaust the API tokens, Be super specific with the question${NC}"
 
 kubectl-ai --llm-provider=openai --model=gpt-4o
