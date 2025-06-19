@@ -119,16 +119,7 @@ sleep 2
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
 echo -e "${GREEN}✅ listing pods in kube-system namespace${NC}"
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-kubectl get pods -n kube-system --no-headers -o wide \
-| awk '
-  {
-    age = $5
-    unit = substr(age, length(age))
-    val = substr(age, 1, length(age) - 1)
-    if (unit == "d" && val <= 10) print
-    else if (unit == "h" || unit == "m" || unit == "s") print
-  }' \
-| kubectl-ai --llm-provider=openai --model=gpt-4o "describe the kube-system pods for any potential issues or misconfigurations" --quiet
+kubectl get pods -n kube-system
 sleep 2
 echo ""
 
