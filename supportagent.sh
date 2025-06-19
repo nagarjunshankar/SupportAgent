@@ -75,6 +75,7 @@ fi
 
 #if [[ "$use_key" == "y" || "$use_key" == "Y" ]]; then
   read -s -p "Enter your OpenAI API Key - Please find the key on 1password Vault: " OPENAI_KEY
+  export OPEN_API_KEY= "$OPENAI_KEY"
   echo ""
   echo -e "${GREEN}✅ OPENAI_API_KEY has been set, Please edit the script to change the key${NC}"
   echo -e "${GREEN}✅ Running Kubectl-ai with OPENAI LLM Provider and Model gpt-4o${NC}"
