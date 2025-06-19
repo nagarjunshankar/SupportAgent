@@ -271,9 +271,10 @@ sleep 5
 
 echo ""
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-echo -e "${GREEN}📜 Logs for the 'rest-interface' pod (error scan)...${NC}"
+echo -e "${GREEN}📜 Listing the 'rest-interface' pod (error scan)...${NC}"
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-kubectl-ai --llm-provider=openai --model=gpt-4o "grep for rest-interface pod and get the correct pod name in the knime namespace and show any errors or stack traces" --quiet
+#kubectl-ai --llm-provider=openai --model=gpt-4o "grep for rest-interface pod and get the correct pod name in the knime namespace and show any errors or stack traces" --quiet
+kubectl get pods -n knime | grep rest-interface
 sleep 5
 echo ""
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
