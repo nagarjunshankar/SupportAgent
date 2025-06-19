@@ -21,8 +21,8 @@ nohup sbctl serve -s $filename > sbctl.log 2>&1 &
 # Wait a few seconds for the server to start
 sleep 5
 # Extract the KUBECONFIG path from the log
-#KUBECONFIG_PATH=$(grep -oE "/var/folders/.*/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
-KUBECONFIG_PATH=$(grep -oE "/tmp/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
+KUBECONFIG_PATH=$(grep -oE "/var/folders/.*/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
+#KUBECONFIG_PATH=$(grep -oE "/tmp/local-kubeconfig-[0-9]+" sbctl.log | tail -n1)
 
 if [ -z "$KUBECONFIG_PATH" ]; then
     echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
@@ -52,10 +52,10 @@ command_exists() {
 
 ## Function to install kubectl-ai
 #install_kubectl_ai() {
-#    echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-#    echo "Installing kubectl-ai..."
-#    echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-#    curl -sSL https://raw.githubusercontent.com/GoogleCloudPlatform/kubectl-ai/main/install.sh | bash
+echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
+echo "Installing kubectl-ai..."
+echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
+curl -sSL https://raw.githubusercontent.com/GoogleCloudPlatform/kubectl-ai/main/install.sh | bash
 #    tar -zxvf kubectl-ai_Darwin_arm64.tar.gz
 #    chmod a+x kubectl-ai
 #    sudo mv kubectl-ai /usr/local/bin/
@@ -294,5 +294,6 @@ echo -e "${GREEN}✅ Cluster analysis complete — done by KNIME AI Support Agen
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
 echo ""
 echo -e "${GREEN}📜 I am now open for any questions you have. Example: You can ask me about specific pod within a namespace in Natural Language${NC}"
+echo -e "${GREEN}📜 Please note that any vague question will exhaust the API tokens, Be super specific with the question${NC}"
 
 kubectl-ai --llm-provider=openai --model=gpt-4o
