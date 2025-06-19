@@ -94,7 +94,7 @@ echo -e "${GREEN}---------------------------------------------------------------
 echo -e "${GREEN}✅ Fetching Namespace where HUB is installed and this script works only for knime namespace${NC}"
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
 echo ""
-kubectl get ns | grep knime*
+kubectl get ns | grep knime
 sleep 5
 echo ""
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
@@ -127,7 +127,7 @@ kubectl get pods -n kube-system --no-headers -o wide \
     if (unit == "d" && val <= 10) print
     else if (unit == "h" || unit == "m" || unit == "s") print
   }' \
-| kubectl-ai --llm-provider=openai --model=gpt-4o "analyze these kube-system pods that are younger than 10 days for any potential issues or misconfigurations" --quiet
+| kubectl-ai --llm-provider=openai --model=gpt-4o "describe the kube-system podsfor any potential issues or misconfigurations" --quiet
 sleep 2
 echo ""
 
@@ -272,7 +272,7 @@ echo ""
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
 echo -e "${GREEN}📜 Logs for the 'rest-interface' pod (error scan)...${NC}"
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
-kubectl-ai --llm-provider=openai --model=gpt-4o "get logs from the rest-interface pod in the knime namespace and show any errors or stack traces" --quiet
+kubectl-ai --llm-provider=openai --model=gpt-4o "grep for rest-interface pod and get the correct pod name in the knime namespace and show any errors or stack traces" --quiet
 sleep 5
 echo ""
 echo -e "${GREEN}--------------------------------------------------------------------------------------------------------------${NC}"
